@@ -25,6 +25,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mkj-X6-27j">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="xBc-MV-Qtz">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xBc-MV-Qtz" id="U0O-l1-vKK">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -39,7 +49,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6yT-Vc-aTS">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="h3P-Fj-DT0" kind="show" id="M3t-2T-gGf"/>
+                                <segue destination="h3P-Fj-DT0" kind="show" identifier="gameSegue" id="M3t-2T-gGf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -63,13 +73,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZzJ-0Q-S3L">
-                                <rect key="frame" x="47" y="84" width="280" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="Ugq-SY-MdK"/>
-                                    <constraint firstAttribute="height" constant="150" id="nrL-q8-Kp7"/>
-                                </constraints>
-                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tUM-6P-663">
                                 <rect key="frame" x="47.5" y="274" width="280" height="30"/>
                                 <nil key="textColor"/>
@@ -85,6 +88,23 @@
                                     <action selector="add:" destination="h3P-Fj-DT0" eventType="touchUpInside" id="Cte-Wg-a9u"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZz-D9-Q7k">
+                                <rect key="frame" x="165" y="374" width="45" height="30"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="add:" destination="h3P-Fj-DT0" eventType="touchUpInside" id="ISZ-NM-GZD"/>
+                                    <action selector="deleteButton:" destination="h3P-Fj-DT0" eventType="touchUpInside" id="MhT-bl-cX6"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZzJ-0Q-S3L">
+                                <rect key="frame" x="47" y="84" width="280" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="Ugq-SY-MdK"/>
+                                    <constraint firstAttribute="height" constant="150" id="nrL-q8-Kp7"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -92,8 +112,10 @@
                             <constraint firstItem="bgf-ro-XBf" firstAttribute="top" secondItem="tUM-6P-663" secondAttribute="bottom" constant="20" id="9vP-Ic-KF2"/>
                             <constraint firstItem="tUM-6P-663" firstAttribute="centerX" secondItem="vru-Ul-D95" secondAttribute="centerX" id="IFJ-Xc-6TI"/>
                             <constraint firstItem="tUM-6P-663" firstAttribute="top" secondItem="ZzJ-0Q-S3L" secondAttribute="bottom" constant="40" id="R0z-A8-XtP"/>
+                            <constraint firstItem="UZz-D9-Q7k" firstAttribute="centerX" secondItem="vru-Ul-D95" secondAttribute="centerX" id="TBK-U8-9SR"/>
                             <constraint firstItem="ZzJ-0Q-S3L" firstAttribute="top" secondItem="Tu6-hu-vnN" secondAttribute="bottom" constant="20" id="bor-RW-qvx"/>
                             <constraint firstItem="bgf-ro-XBf" firstAttribute="centerX" secondItem="vru-Ul-D95" secondAttribute="centerX" id="c5L-C8-U7P"/>
+                            <constraint firstItem="UZz-D9-Q7k" firstAttribute="top" secondItem="bgf-ro-XBf" secondAttribute="bottom" constant="20" id="itp-tY-GaD"/>
                             <constraint firstItem="ZzJ-0Q-S3L" firstAttribute="centerX" secondItem="vru-Ul-D95" secondAttribute="centerX" id="voE-ym-7vS"/>
                         </constraints>
                     </view>
@@ -114,6 +136,8 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="addUpdate" destination="bgf-ro-XBf" id="pDP-f3-915"/>
+                        <outlet property="deleteButton" destination="UZz-D9-Q7k" id="pwG-fs-GsT"/>
                         <outlet property="imageView" destination="ZzJ-0Q-S3L" id="Zhc-kW-Yyn"/>
                         <outlet property="titleTextField" destination="tUM-6P-663" id="T4q-Ij-HUv"/>
                     </connections>
@@ -141,7 +165,4 @@
             <point key="canvasLocation" x="332" y="124"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="1.png" width="120" height="120"/>
-    </resources>
 </document>
